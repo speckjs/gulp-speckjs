@@ -1,0 +1,49 @@
+{
+  "name": "gulp-speckjs",
+  "description": "tiny comments, great tests",
+  "version": "1.0.0",
+  "homepage": "https://speckjs.github.io",
+  "license": "MIT",
+  "contributors": [
+    "Luke Savage <luke.savage92@gmail.com>",
+    "Zach Sebag <zsebag@gmail.com>",
+    "Greg Varias <gregvarias@gmail.com>",
+    "Nick Balestra <nick@balestra.ch>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/speckjs/gulp-speckjs"
+  },
+  "bugs": {
+    "url": "https://github.com/speckjs/gulp-speckjs/issues"
+  },
+  "engines": {
+    "node": "(>= 0.10.0)"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-contrib-clean": "0.0.2",
+    "gulp-eslint": "^1.0.0",
+    "gulp-tape": "0.0.3",
+    "performance-now": "^0.2.0",
+    "tape": "^4.2.0"
+  },
+  "peerDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "keywords": [
+    "gulp plugin",
+    "tdd",
+    "test",
+    "tape",
+    "jasmine",
+    "spec",
+    "unit"
+  ],
+  "dependencies": {
+    "speckjs": ">=1.0.0 <2.0.0"
+  }
+}
