@@ -28,11 +28,12 @@
     "gulp-contrib-clean": "0.0.2",
     "gulp-eslint": "^1.0.0",
     "gulp-tape": "0.0.3",
+    "gulp-util": "^3.0.6",
     "performance-now": "^0.2.0",
     "tape": "^4.2.0"
   },
   "keywords": [
-    "gulp plugin",
+    "gulpplugin",
     "tdd",
     "test",
     "tape",
