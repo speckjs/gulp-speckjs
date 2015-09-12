@@ -1,7 +1,7 @@
 {
   "name": "gulp-speckjs",
   "description": "tiny comments, great tests",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "homepage": "https://speckjs.github.io",
   "license": "MIT",
   "contributors": [
