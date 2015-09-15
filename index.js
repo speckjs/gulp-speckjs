@@ -1,11 +1,10 @@
 var through = require('through2');
-var glob = require('glob');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var speckjs = require('speckjs');
 var extend = require('util')._extend;
 
-const PLUGIN_NAME = 'gulp-speckjs';
+var PLUGIN_NAME = 'gulp-speckjs';
 
 module.exports = function(options) {
 
@@ -21,10 +20,10 @@ module.exports = function(options) {
       cb(null, file);
     }
 
-    options.onBuild = function(output){
+    options.onBuild = function(output) {
       file.contents = new Buffer(output);
       if (options.logs) {
-        gutil.log(gutil.colors.green('Boom! ') + options.testFW + ' spec file compiled' );
+        gutil.log(gutil.colors.green('Boom! ') + options.testFW + ' spec file compiled');
       }
       cb(null, file);
     };
@@ -32,34 +31,35 @@ module.exports = function(options) {
     if (file.isBuffer()) {
       try {
 
-      source = {
-        name: file.path,
-        content: file.contents.toString()
-      };
 
-      speckjs.build(source, options);
+        source = {
+          name: options.relPath || file.path,
+          content: file.contents.toString()
+        };
 
-      } catch(error) {
+        speckjs.build(source, options);
+
+      } catch (error) {
         this.emit('error', new PluginError(PLUGIN_NAME, error));
         return cb(error);
       }
     }
     if (file.isStream()) {
-      var source = '';
-      file.on('readable',function(buffer){
+      source = '';
+      file.on('readable',function(buffer) {
         var chunk = buffer.read().toString();
         source += chunk;
       });
-      file.on('end',function(){
+      file.on('end',function() {
         try {
 
           source = {
-            name: file.path,
+            name: options.relPath || file.path,
             content: source
           };
           speckjs.build(source, options);
 
-        } catch(error) {
+        } catch (error) {
           this.emit('error', new PluginError(PLUGIN_NAME, error));
           return cb(error);
         }
