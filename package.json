@@ -24,10 +24,10 @@
     "test": "gulp test"
   },
   "devDependencies": {
+    "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-foreach": "^0.1.0",
-    "del": "^2.0.2",
     "gulp-tape": "0.0.3",
     "tape": "^4.2.0"
   },

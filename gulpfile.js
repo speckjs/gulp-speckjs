@@ -3,6 +3,7 @@ var speck = require('./index.js');
 var rename = require("gulp-rename");
 var foreach = require('gulp-foreach');
 var del = require('del');
+var tape = require('gulp-tape');
 
 gulp.task('speck:tape', function() {
   return gulp.src('./test/fixtures/*.js')
@@ -40,4 +41,10 @@ gulp.task('speck', ['speck:tape', 'speck:jasmine']);
 
 gulp.task('clean', function() {
   return del('./test/fixtures/specs/*.js');
+});
+
+
+gulp.task('test', ['clean', 'speck'], function(){
+  return gulp.src('test/specs/*_test.js')
+    .pipe(tape());
 });

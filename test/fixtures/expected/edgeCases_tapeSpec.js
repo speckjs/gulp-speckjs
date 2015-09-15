@@ -1,5 +1,5 @@
 var test = require('tape');
-var file = require('../edgeCases.js');
+var file = require('/Users/nick/HR/gulp-speckjs/test/fixtures/edgeCases.js');
 
 test('sum function', function(t) { 
   t.plan(2);
