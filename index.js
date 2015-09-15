@@ -1,30 +1,69 @@
-//File to hold the gulp task being called in our gulpfile
-var gutil = require('gulp-util');
 var through = require('through2');
-// var glob = require('glob');
+var glob = require('glob');
 var gutil = require('gulp-util');
-var path = require('path');
 var PluginError = gutil.PluginError;
-var speck = require('speckjs');
+var speckjs = require('speckjs');
+var extend = require('util')._extend;
 
-//pass files and options into function
-module.exports = function(options){
-//Need to add some kind of options or default options logic
-var defOption;
-options = options || defOption;
-var files = [];
-var stream = through.obj(function (file, enc, cb) {
+const PLUGIN_NAME = 'gulp-speckjs';
+
+module.exports = function(options) {
+
+  var source;
+  var defaults = {
+    testFW: 'tape',
+    logs: true
+  };
+  options = extend(defaults, options);
+
+  return through.obj(function(file, enc, cb) {
     if (file.isNull()) {
       cb(null, file);
-      return;
+    }
+
+    options.onBuild = function(output){
+      file.contents = new Buffer(output);
+      if (options.logs) {
+        gutil.log(gutil.colors.green('Boom! ') + options.testFW + ' spec file compiled' );
+      }
+      cb(null, file);
+    };
+
+    if (file.isBuffer()) {
+      try {
+
+      source = {
+        name: file.path,
+        content: file.contents.toString()
+      };
+
+      speckjs.build(source, options);
+
+      } catch(error) {
+        this.emit('error', new PluginError(PLUGIN_NAME, error));
+        return cb(error);
+      }
     }
     if (file.isStream()) {
-      cb(new gutil.PluginError('gulp-speckjs', 'Streaming not supported'));
-      return;
+      var source = '';
+      file.on('readable',function(buffer){
+        var chunk = buffer.read().toString();
+        source += chunk;
+      });
+      file.on('end',function(){
+        try {
+
+          source = {
+            name: file.path,
+            content: source
+          };
+          speckjs.build(source, options);
+
+        } catch(error) {
+          this.emit('error', new PluginError(PLUGIN_NAME, error));
+          return cb(error);
+        }
+      });
     }
-    //Grab each file
-    //Run speckbuild on each file -- foreach?
-    //Write string produced from that to a file with file name as origin file + w/e is in options
   });
-return stream;
 };
