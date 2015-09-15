@@ -8,5 +8,9 @@ gulp.task('speck', function() {
       testFW: 'tape',
       logs: true
     }))
-    .pipe(gulp.dest('./test/fixtures/specs/'));
+    .pipe(rename({
+      suffix : '_tapeSpec',
+      dirname: 'fixtures/specs'
+    }))
+    .pipe(gulp.dest('./test'));
 });
