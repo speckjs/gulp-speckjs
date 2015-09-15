@@ -1,6 +1,6 @@
 var assert = require('assert');
 var test = require('jasmine');
-var file = require('/Users/nick/HR/gulp-speckjs/test/fixtures/base.js');
+var file = require('../specs/base.js');
 
 describe('diff function', function() { 
   it('returnt the diff of both params', function() {

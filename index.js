@@ -31,8 +31,9 @@ module.exports = function(options) {
     if (file.isBuffer()) {
       try {
 
+
         source = {
-          name: file.path,
+          name: options.relPath || file.path,
           content: file.contents.toString()
         };
 
@@ -53,7 +54,7 @@ module.exports = function(options) {
         try {
 
           source = {
-            name: file.path,
+            name: options.relPath || file.path,
             content: source
           };
           speckjs.build(source, options);

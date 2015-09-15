@@ -1,6 +1,6 @@
 var assert = require('assert');
 var test = require('jasmine');
-var file = require('/Users/nick/HR/gulp-speckjs/test/fixtures/edgeCases.js');
+var file = require('../specs/edgeCases.js');
 
 describe('sum function', function() { 
   it('returnt the sum of both params', function() {

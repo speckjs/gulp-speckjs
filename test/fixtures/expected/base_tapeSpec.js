@@ -1,5 +1,5 @@
 var test = require('tape');
-var file = require('/Users/nick/HR/gulp-speckjs/test/fixtures/base.js');
+var file = require('../specs/base.js');
 
 test('diff function', function(t) { 
   t.plan(3);
