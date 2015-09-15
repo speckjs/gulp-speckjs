@@ -25,10 +25,9 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-contrib-clean": "0.0.2",
     "gulp-eslint": "^1.0.0",
     "gulp-foreach": "^0.1.0",
-    "gulp-rename": "^1.2.2",
+    "del": "^2.0.2",
     "gulp-tape": "0.0.3",
     "tape": "^4.2.0"
   },
@@ -42,9 +41,9 @@
     "unit"
   ],
   "dependencies": {
-    "speckjs": ">=1.0.0 <2.0.0",
     "glob": "^5.0.10",
-    "through2": "^2.0.0",
-    "gulp-util": "^3.0.6"
+    "gulp-util": "^3.0.6",
+    "speckjs": ">=1.0.0 <2.0.0",
+    "through2": "^2.0.0"
   }
 }
