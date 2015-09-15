@@ -28,11 +28,10 @@
     "gulp-contrib-clean": "0.0.2",
     "gulp-eslint": "^1.0.0",
     "gulp-tape": "0.0.3",
-    "performance-now": "^0.2.0",
     "tape": "^4.2.0"
   },
   "keywords": [
-    "gulp plugin",
+    "gulpplugin",
     "tdd",
     "test",
     "tape",
@@ -41,6 +40,9 @@
     "unit"
   ],
   "dependencies": {
-    "speckjs": ">=1.0.0 <2.0.0"
+    "speckjs": ">=1.0.0 <2.0.0",
+    "glob": "^5.0.10",
+    "through2": "^2.0.0",
+    "gulp-util": "^3.0.6"
   }
 }
