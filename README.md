@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/speckjs/gulp-speckjs.svg?branch=master)](https://travis-ci.org/speckjs/gulp-speckjs.svg)
 
-
 # gulp-speckjs
 
 > Comment Driven Development
@@ -45,7 +44,7 @@ gulp.task('speck:tape', function() {
 
 ### options
 
-- `testFW`: the test suite for shich SpeckJS will build
+- `testFW`: the test suite for which SpeckJS will build
 - `relPath`: the relative path that will be used inside each spec file
 - `logs`: output on console success/error messages
 
