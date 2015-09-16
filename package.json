@@ -1,0 +1,50 @@
+{
+  "name": "gulp-speckjs",
+  "description": "Comment Driven Development",
+  "version": "1.0.0",
+  "homepage": "https://speckjs.github.io",
+  "license": "MIT",
+  "contributors": [
+    "Luke Savage <luke.savage92@gmail.com>",
+    "Zach Sebag <zsebag@gmail.com>",
+    "Greg Varias <gregvarias@gmail.com>",
+    "Nick Balestra <nick@balestra.ch>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/speckjs/gulp-speckjs"
+  },
+  "bugs": {
+    "url": "https://github.com/speckjs/gulp-speckjs/issues"
+  },
+  "engines": {
+    "node": "(>= 0.10.0)"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "devDependencies": {
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-foreach": "^0.1.0",
+    "gulp-inject": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-tape": "0.0.3",
+    "tape": "^4.2.0"
+  },
+  "keywords": [
+    "gulpplugin",
+    "tdd",
+    "test",
+    "tape",
+    "jasmine",
+    "spec",
+    "unit"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.6",
+    "speckjs": ">=1.0.0 <2.0.0",
+    "through2": "^2.0.0"
+  }
+}
