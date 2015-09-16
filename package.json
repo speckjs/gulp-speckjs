@@ -1,7 +1,7 @@
 {
   "name": "gulp-speckjs",
   "description": "Comment Driven Development",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://speckjs.github.io",
   "license": "MIT",
   "contributors": [
@@ -39,6 +39,7 @@
     "test",
     "tape",
     "jasmine",
+    "mocha",
     "spec",
     "unit"
   ],
