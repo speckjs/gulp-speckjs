@@ -45,17 +45,17 @@ module.exports = function(options) {
       }
     }
     if (file.isStream()) {
-      source = '';
+      var sourceString = '';
       file.on('readable',function(buffer) {
         var chunk = buffer.read().toString();
-        source += chunk;
+        sourceString += chunk;
       });
       file.on('end',function() {
         try {
 
           source = {
             name: options.relPath || file.path,
-            content: source
+            content: sourceString
           };
           speckjs.build(source, options);
 
