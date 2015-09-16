@@ -39,6 +39,22 @@ gulp.task('speck:jasmine', function() {
     .pipe(gulp.dest('./test/fixtures/specs'));
 });
 
+gulp.task('speck:mochaChai', function() {
+  return gulp.src('./test/fixtures/*.js')
+    .pipe(foreach(function(stream, file) {
+      return stream
+        .pipe(speck({
+          testFW: 'mocha-chai',
+          logs: true,
+          relPath: '../specs/' + path.basename(file.path)
+        }))
+        .pipe(rename({
+          suffix : '_mochaChaiSpec'
+        }));
+    }))
+    .pipe(gulp.dest('./test/fixtures/specs'));
+});
+
 gulp.task('eslint', function () {
   return gulp.src(['gulpfile.js', 'index.js', 'test/specs/*_test.js'])
     .pipe(eslint())
@@ -46,7 +62,7 @@ gulp.task('eslint', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('speck', ['speck:tape', 'speck:jasmine']);
+gulp.task('speck', ['speck:tape', 'speck:jasmine', 'speck:mochaChai']);
 
 gulp.task('clean', function() {
   return del('./test/fixtures/specs/*.js');
